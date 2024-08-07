@@ -50,19 +50,14 @@ def check_password_strength(password):
     return strength, feedback
 
 
-if __name__ == "__main__":
-    while True:
-        password = input("Enter a password to check (or 'q' to quit): ")
-        if password.lower() == 'q':
-            break
-
-        strength, feedback = check_password_strength(password)
-
-        print(f"\nPassword Strength: {strength}")
-        if feedback:
-            print("Suggestions for improvement:")
-            for suggestion in feedback:
-                print(f"- {suggestion}")
-        else:
-            print("Excellent password!")
-        print()
+while True:
+    password = input("Enter a password to check: ")
+    strength, feedback = check_password_strength(password)
+    print(f"\nPassword Strength: {strength}")
+    if feedback:
+        print("Suggestions for improvement:")
+        for suggestion in feedback:
+            print(f"- {suggestion}")
+    else:
+        print("Excellent password!")
+    print()
